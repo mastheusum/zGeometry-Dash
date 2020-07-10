@@ -8,7 +8,8 @@ public class PlataformBehavior : MonoBehaviour
     public float speed = 0f;
     public float jumpForce = 0f;
 
-    public bool isOnFloor = false;
+    private bool isOnFloor = false;
+    private bool canDie = false;
 
     private Rigidbody2D rig;
 
@@ -23,13 +24,11 @@ public class PlataformBehavior : MonoBehaviour
     {
         Movement();
         Jump();
-        rig.AddTorque(-2);
-        if (rig.velocity.y == 0) isOnFloor = true;
     }
 
     void Movement()
     {
-        rig.position += new Vector2(Input.GetAxisRaw("Horizontal"), 0f) * speed * Time.deltaTime;
+        rig.position += new Vector2(1f, 0f) * speed * Time.deltaTime;
     }
 
     void Jump()
@@ -38,6 +37,19 @@ public class PlataformBehavior : MonoBehaviour
         {
             rig.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             isOnFloor = false;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Tiles")
+        {
+            isOnFloor = true;
+            print(rig.velocity);
+        }
+        else if (collision.gameObject.tag == "Danger/Spike")
+        {
+            Destroy(gameObject);
         }
     }
 }
