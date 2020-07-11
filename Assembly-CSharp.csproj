@@ -63,7 +63,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\PlataformBehavior.cs" />
+    <Compile Include="Assets\Scripts\SpikesBehavior.cs" />
+    <Compile Include="Assets\Scripts\TilesBehavior.cs" />
     <Reference Include="Cinemachine">
       <HintPath>C:/Users/macei/Documents/Unity Projects/zGeometry-Dash/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
     </Reference>

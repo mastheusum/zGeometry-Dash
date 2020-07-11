@@ -7,9 +7,9 @@ public class PlataformBehavior : MonoBehaviour
 
     public float speed = 0f;
     public float jumpForce = 0f;
+    public bool die = false;
 
     private bool isOnFloor = false;
-    private bool canDie = false;
 
     private Rigidbody2D rig;
 
@@ -24,6 +24,8 @@ public class PlataformBehavior : MonoBehaviour
     {
         Movement();
         Jump();
+        if (die)
+            Destroy(gameObject);
     }
 
     void Movement()
@@ -44,12 +46,7 @@ public class PlataformBehavior : MonoBehaviour
     {
         if (collision.gameObject.tag == "Tiles")
         {
-            isOnFloor = true;
-            print(rig.velocity);
-        }
-        else if (collision.gameObject.tag == "Danger/Spike")
-        {
-            Destroy(gameObject);
+            isOnFloor = true; 
         }
     }
 }

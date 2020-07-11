@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3123577560699760294}
   - component: {fileID: 6250225362949705845}
   - component: {fileID: 3704169628070551999}
+  - component: {fileID: 6095948045019745011}
   m_Layer: 0
   m_Name: Spike Inverted
   m_TagString: Danger/Spike
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6436189404862227138}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: -1.0446423, y: -0.7740963, z: -9.882675}
+  m_LocalPosition: {x: -1.0446423, y: -0.7740963, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -120,7 +121,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6436189404862227138}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -132,4 +133,16 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 0
+--- !u!114 &6095948045019745011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6436189404862227138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5f98ebf075254e44ade4f96e8f8ad16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
