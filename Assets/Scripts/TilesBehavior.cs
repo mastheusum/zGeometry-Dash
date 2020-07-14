@@ -1,7 +1,10 @@
-﻿using System.Collections;
+﻿using JetBrains.Annotations;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using Random = UnityEngine.Random;
 
 public class TilesBehavior : MonoBehaviour
 {
@@ -25,15 +28,16 @@ public class TilesBehavior : MonoBehaviour
         if (deltaTime <= 0)
         {
             deltaTime = maxDeltaTime;
-            tilemap.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f)); ;
+            tilemap.color = new Color(Random.Range(0f, 1f), 
+                Random.Range(0f, 1f), Random.Range(0f, 1f));
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "HurtBox")
+        if (collision.collider.tag == "HurtBox")
         {
-            collision.GetComponentInParent<PlataformBehavior>().die = true;
+            collision.collider.GetComponentInParent<PlataformBehavior>().die = true;
         }
     }
 }
