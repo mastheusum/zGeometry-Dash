@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\PlataformBehavior.cs" />
+    <Compile Include="Assets\Scripts\PortalBehavior.cs" />
     <Compile Include="Assets\Scripts\SpikesBehavior.cs" />
     <Compile Include="Assets\Scripts\TilesBehavior.cs" />
     <Reference Include="Cinemachine">

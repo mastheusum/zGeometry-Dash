@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlataformBehavior : MonoBehaviour
 {
@@ -12,11 +13,14 @@ public class PlataformBehavior : MonoBehaviour
     private bool isOnFloor = false;
 
     private Rigidbody2D rig;
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        anim.Play("Player");
     }
 
     // Update is called once per frame
@@ -24,8 +28,12 @@ public class PlataformBehavior : MonoBehaviour
     {
         Movement();
         Jump();
+        if (isOnFloor)
+            anim.speed = 0;
+        else
+            anim.speed = 1;
         if (die)
-            Destroy(gameObject);
+            SceneManager.LoadScene("SampleScene");
     }
 
     void Movement()
